@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "@/assets/icons";
-import { useUser } from "@/hooks/useUser";
+// import { useUser } from "@/hooks/useUser";
 import { signOut } from "next-auth/react";
 import { queryClient } from "@/pages/_app";
 
@@ -15,7 +15,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [navbarOpened, setNavbarOpened] = useState(false);
 
-  const { data: userData } = useUser();
+  // const { data: userData } = useUser();
 
   const transparent = pagesWithTransparentNavbar.includes(router.asPath);
 
@@ -135,7 +135,7 @@ export const Navbar = () => {
          <img  className={styles.logo} src="/nexorith.png" alt="" />
         </Link>
 
-        <button
+        {/* <button
           aria-controls="primary-navigation"
           aria-expanded={navbarOpened}
           aria-label="toggle navigation"
@@ -143,11 +143,11 @@ export const Navbar = () => {
             navbarOpened ? styles.active : ""
           }`}
           onClick={handleToggleNavbar}
-        >
+        > */}
           <span />
           <span />
           <span />
-        </button>
+        {/* </button> */}
 
         <nav
           className={`${styles.primaryNavigation} ${
