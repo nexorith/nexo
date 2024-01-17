@@ -1,0 +1,148 @@
+.heroSection {
+  background: url("/home/43_6.jpg") no-repeat;
+  background-size: cover;
+}
+
+.heroContainer {
+  padding: 9rem 0 10rem 0;
+  position: relative;
+}
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 2s steps(40, end),
+    blink-caret .75s step-end infinite;
+    font-size: 13px;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+.preTitle {
+  font-weight: var(--fw-700);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.625rem;
+}
+
+.preTitle::before {
+  content: "";
+  height: 0.15em;
+  background: var(--clr-accent-400);
+  width: 3.125em;
+}
+
+.title {
+  font-size: var(--fs-900);
+  font-weight: var(--fw-800);
+  color: var(--clr-accent-900);
+  line-height: 1.25;
+  max-width: 15ch;
+}
+
+.caption {
+  font-size: var(--fs-500);
+  line-height: 2em;
+  margin: 1.875rem 0;
+  max-width: 45ch;
+}
+
+.girlBg,
+.girlImage {
+  position: absolute;
+  right: 0;
+  bottom:8rem;
+  height: auto;
+  width: 30rem;
+}
+
+.girlBg {
+  height: 65%;
+}
+
+.girlImage {
+  z-index: 99;
+}
+
+.rightImages::before {
+  content: url("/home/shape-2.png");
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.shape1,
+.shape3 {
+  position: absolute;
+}
+
+.shape1 {
+  left: 0.6rem;
+  top: 9rem;
+}
+
+.shape3 {
+  top: 250px;
+  right: 5%;
+}
+
+@media screen and (max-width: 68em) {
+  .shape1 {
+    display: none;
+  }
+
+  .girlImage {
+    height: 60%;
+  }
+
+  .girlBg {
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 56.25em) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+    padding: 8rem 0 6rem 0;
+  }
+
+  .title,
+  .caption {
+    max-width: 100%;
+  }
+
+  .girlImage,
+  .girlBg,
+  .shape1,
+  .shape3,
+  .rightImages::before {
+    display: none;
+  }
+}
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 2s steps(40, end),
+    blink-caret .75s step-end infinite;
+    
+}
+
