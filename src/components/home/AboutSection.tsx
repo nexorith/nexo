@@ -99,7 +99,8 @@ export const AboutSection = () => {
               data-aos="fade-up"
               data-aos-delay="150"
             >
-             We bring the power of creativity to enhance your brand's impact!
+              We bring the power of creativity to enhance your brand&apos;s
+              impact!
             </h2>
           </header>
 
@@ -141,7 +142,7 @@ export const AboutSection = () => {
                   data-aos="fade-up"
                   data-aos-delay="450"
                 >
-                 Digital Strategy
+                  Digital Strategy
                 </h3>
                 <p
                   className="feature__description"
@@ -184,7 +185,7 @@ export const AboutSection = () => {
                   data-aos="fade-up"
                   data-aos-delay="450"
                 >
-                  Modern 
+                  Modern
                 </h2>
                 <p
                   className="feature__caption"
