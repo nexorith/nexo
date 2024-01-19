@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import Router from 'next/router'
 import axios from 'axios';
 
-const login = () => {
+const Login = () => {
 
 
     const [user, setUser] = useState({
@@ -72,4 +72,4 @@ const login = () => {
     )
 }
 
-export default login
+export default Login
