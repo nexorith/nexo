@@ -14,64 +14,121 @@ const Signup = () => {
 
     const [error, setError] = useState('')
     const router = useRouter()
+    const [user, setUser] = useState({
+        email: "",
+        name: "",
+        phone: "",
+        companyname: "",
+        address: "",
+        password: "",
+    });
 
-    const isValidEmail = (email: string) => {
-        const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
-        return emailRegex.test(email);
-    }
-
-    const handleSubmit = async(e: any) => {
-        e.preventDefault();
-        const email = e.target[0].value;
-        const name = e.target[1].value;
-        const phone = e.target[2].value;
-        const companyname = e.target[3].value;
-        const address = e.target[4].value;
-        const password = e.target[5].value;
-        console.log(email, name, phone, companyname, address, password);
-
-        if (!isValidEmail(email)) {
-            setError('Invalid Email')
-            return;
-        }
-        if (!password||password.length < 6) {
-            setError('Password must be at least 6 characters')
-            return;
-        }
+    const onSignup = async (e: any) => {
+        e.preventDefault()
         try {
-            const res = await fetch("/api/register", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email,
-                password,
-                name,
-                phone,
-                companyname,
-                address,
+            const response = await axios.post("/api/users/register", user)
+            console.log(response.data);
+            router.push("/login");
 
-              }),
-            }); 
-           
-
-            if (res.status === 400) {
-              setError("This email is already registered");
-            }
-            if (res.status === 200) {
-              setError("");
-              router.push("/login");
-            }
-          } catch (error) {
-            setError("Error, try again");
+        } catch (error) {
             console.log(error);
-          }
-        };
-      
-    
+        }
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // const isValidEmail = (email: string) => {
+        //     const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+        //     return emailRegex.test(email);
+        // }
+
+        // const handleSubmit = async(e: any) => {
+        //     e.preventDefault();
+        //     const email = e.target[0].value;
+        //     const name = e.target[1].value;
+        //     const phone = e.target[2].value;
+        //     const companyname = e.target[3].value;
+        //     const address = e.target[4].value;
+        //     const password = e.target[5].value;
+        //     console.log(email, name, phone, companyname, address, password);
+
+        //     if (!isValidEmail(email)) {
+        //         setError('Invalid Email')
+        //         return;
+        //     }
+        //     if (!password||password.length < 6) {
+        //         setError('Password must be at least 6 characters')
+        //         return;
+        //     }
+        //     try {
+        //         const res = await fetch("/api/register", {
+        //           method: "POST",
+        //           headers: {
+        //             "Content-Type": "application/json",
+        //           },
+        //           body: JSON.stringify({
+        //             email,
+        //             password,
+        //             name,
+        //             phone,
+        //             companyname,
+        //             address,
+
+        //           }),
+        //         }); 
+
+
+        //         if (res.status === 400) {
+        //           setError("This email is already registered");
+        //         }
+        //         if (res.status === 200) {
+        //           setError("");
+        //           router.push("/login");
+        //         }
+        //       } catch (error) {
+        //         setError("Error, try again");
+        //         console.log(error);
+        //       }
+        //     };
+
+
+
+    }
 
     return (
         <>
@@ -80,31 +137,51 @@ const Signup = () => {
                 <div className="title">
                     Sign Up
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={onSignup}>
                     <div className={styles.field}>
-                        <input type="text" required />
+
+                        <input type="text" value={user.email} onChange={(e) => {
+                            setUser({ ...user, email: e.target.value })
+                        }} required />
                         <label>Email Address</label>
                     </div>
                     <div className={styles.field}>
-                        <input type="text" required />
+
+                        <input type="text" value={user.name} onChange={(e) => {
+                            setUser({ ...user, name: e.target.value })
+                        }} required />
                         <label>Name</label>
                     </div>
                     <div className={styles.field}>
-                        <input type="text" required />
-                        <label>Contact Number</label>
+
+                        <input type="text" value={user.phone} onChange={(e) => {
+                            setUser({ ...user, phone: e.target.value })
+                        }} required />
+                        <label>Phone</label>
                     </div>
                     <div className={styles.field}>
-                        <input type="text" required />
+
+                        <input type="text" value={user.companyname} onChange={(e) => {
+                            setUser({ ...user, companyname: e.target.value })
+                        }} required />
                         <label>Company Name</label>
+                        
                     </div>
                     <div className={styles.field}>
-                        <input type="text" required />
+
+                        <input type="text" value={user.address} onChange={(e) => {
+                            setUser({ ...user, address: e.target.value })
+                        }} required />
                         <label>Address</label>
                     </div>
                     <div className={styles.field}>
-                        <input type="password" required />
+
+                        <input type="password" value={user.password} onChange={(e) => {
+                            setUser({ ...user, password: e.target.value })
+                        }} required />
                         <label>Password</label>
                     </div>
+
 
 
                     <div className={styles.field}>

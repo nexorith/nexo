@@ -3,24 +3,52 @@ import { Footer } from '@/components/layout/Footer'
 import styles from "./login.module.css"
 import React from 'react'
 import Link from 'next/link'
+import { useState } from 'react'
+import { useRouter } from 'next/router';
+import Router from 'next/router'
+import axios from 'axios';
 
 const login = () => {
 
+
+    const [user, setUser] = useState({
+        email: "",
+        password: "",
+    });
+    const onSignIn = async(e: any) => {
+        e.preventDefault()
+       try{
+        const response = await axios.post("/api/users/login", user)
+        console.log(response.data);
+        Router.push("/dashboard");
+
+       }catch(error){
+              console.log(error);
+         }
+
+    }
+
     return (
         <>
-        <Navbar/>
+            <Navbar />
             <div className={styles.wrapper}>
                 <div className="title">
                     Login Form
                 </div>
-                <form action="#">
+                <form onSubmit={onSignIn}>
                     <div className={styles.field}>
-                        <input type="text" required />
+
+                        <input type="text" value={user.email} onChange={(e) => {
+                            setUser({ ...user, email: e.target.value })
+                        }} required />
                         <label>Email Address</label>
                     </div>
                     <div className={styles.field}>
-                        <input type="password" required/>
-                            <label>Password</label>
+
+                        <input type="password" value={user.password} onChange={(e) => {
+                            setUser({ ...user, password: e.target.value })
+                        }} required />
+                        <label>Password</label>
                     </div>
                     <div className={styles.content}>
                         <div className="checkbox">
@@ -39,7 +67,7 @@ const login = () => {
                     </div>
                 </form>
             </div>
-            <Footer/>
+            <Footer />
         </>
     )
 }
