@@ -1,4 +1,4 @@
-
+"use client"
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import styles from "./login.module.css"
@@ -10,7 +10,7 @@ import axios from 'axios';
 
 
 
-const signup = () => {
+const Signup = () => {
 
     const [error, setError] = useState('')
     const router = useRouter()
@@ -121,4 +121,4 @@ const signup = () => {
     )
 }
 
-export default signup;
+export default Signup;

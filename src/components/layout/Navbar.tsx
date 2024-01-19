@@ -35,13 +35,7 @@ export const Navbar = () => {
 
   const handleToggleNavbar = () => setNavbarOpened((prev) => !prev);
 
-  const handleLogout = async () => {
-    handleToggleNavbar();
-    await signOut({ redirect: false });
-    await queryClient.setQueryData(["current-user"], () => {
-      return null;
-    });
-  };
+
 
   return (
     <header
