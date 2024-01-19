@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <Head>
-        <title>About | Xavier Entrepreneurship Bootcamp</title>
+        <title>About US</title>
       </Head>
 
       <Navbar />

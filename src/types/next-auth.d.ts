@@ -1,7 +1,7 @@
 import { ObjectId } from "mongoose";
 import NextAuth, { DefaultSession } from "next-auth";
-
-import { IUser } from "@/models/user";
+import { User } from "@models/User";
+import { connect } from "@utils/db";
 
 declare module "next-auth" {
   interface Session extends DefaultSession {

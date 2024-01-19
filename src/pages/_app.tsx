@@ -9,7 +9,7 @@ import { NavigationProgress, nprogress } from "@mantine/nprogress";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { SessionProvider } from "next-auth/react";
+
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,7 +27,7 @@ export default function App({
   pageProps: { session, ...pageProps },
 }: AppProps & { colorScheme: ColorScheme }) {
   return (
-    <SessionProvider session={session}>
+   
       <QueryClientProvider client={queryClient}>
         <MantineProvider
           theme={{
@@ -61,7 +61,7 @@ export default function App({
           </ModalsProvider>
         </MantineProvider>
       </QueryClientProvider>
-    </SessionProvider>
+   
   );
 }
 

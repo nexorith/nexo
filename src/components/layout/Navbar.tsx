@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "@/assets/icons";
 // import { useUser } from "@/hooks/useUser";
-import { signOut } from "next-auth/react";
+// import { signOut } from "next-auth/react";
 import { queryClient } from "@/pages/_app";
 
 const pagesWithTransparentNavbar = ["/"];
@@ -135,7 +135,7 @@ export const Navbar = () => {
          <img  className={styles.logo} src="/nexorith.png" alt="" />
         </Link>
 
-        {/* <button
+       <button 
           aria-controls="primary-navigation"
           aria-expanded={navbarOpened}
           aria-label="toggle navigation"
@@ -143,11 +143,11 @@ export const Navbar = () => {
             navbarOpened ? styles.active : ""
           }`}
           onClick={handleToggleNavbar}
-        > */}
+        >
           <span />
           <span />
           <span />
-        {/* </button> */}
+        </button>
 
         <nav
           className={`${styles.primaryNavigation} ${
@@ -202,6 +202,15 @@ export const Navbar = () => {
                 onClick={handleToggleNavbar}
               >
                 Enquiry
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={styles.navLink}
+                href="/login"
+                onClick={handleToggleNavbar}
+              >
+                Login
               </Link>
             </li>
 {/* 
