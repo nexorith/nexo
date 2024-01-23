@@ -34,7 +34,7 @@ export default function Home() {
         {/* Favicon */}
        
 
-        <link rel="icon" href="/nexorith.png" />
+        <link rel="icon" href="/nexorithnav.png" />
       </Head>
 
       <Navbar />
