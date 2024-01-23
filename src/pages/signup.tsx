@@ -23,30 +23,33 @@ const Signup = () => {
         password: "",
     });
 
+    const isValidEmail = (email: string) => {
+        const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+        return emailRegex.test(email);
+    }
     const onSignup = async (e: any) => {
+
+
+
         e.preventDefault()
         try {
             const response = await axios.post("/api/users/register", user)
             console.log(response.data);
             router.push("/login");
+            if (response.status === 400) {
+                setError("This email is already registered");
+
+            }
+            if (response.status === 200) {
+                setError("");
+                router.push("/login");
+            }
+
+
 
         } catch (error) {
             console.log(error);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -113,17 +116,7 @@ const Signup = () => {
         //         }); 
 
 
-        //         if (res.status === 400) {
-        //           setError("This email is already registered");
-        //         }
-        //         if (res.status === 200) {
-        //           setError("");
-        //           router.push("/login");
-        //         }
-        //       } catch (error) {
-        //         setError("Error, try again");
-        //         console.log(error);
-        //       }
+        //  
         //     };
 
 
@@ -165,7 +158,7 @@ const Signup = () => {
                             setUser({ ...user, companyname: e.target.value })
                         }} required />
                         <label>Company Name</label>
-                        
+
                     </div>
                     <div className={styles.field}>
 
